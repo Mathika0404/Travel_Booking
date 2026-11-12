@@ -116,14 +116,30 @@ function renderTestimonial(){
 function changeTestimonial(step){testimonialIndex=(testimonialIndex+step+testimonials.length)%testimonials.length;renderTestimonial();}
 
 document.addEventListener("click", async (event)=>{
-  const destination=event.target.closest("[data-destination]");
-  if(destination){$("#destinationInput").value=destination.dataset.destination;$("#hotels").scrollIntoView({behavior:"smooth"});toast(`Showing stays for ${destination.dataset.destination}`);}
+ /* DESTINATION IMAGE CLICK - OPEN 404 PAGE */
+
+const destination = event.target.closest("[data-destination]");
+
+if (destination) {
+    window.location.href = "404.html";
+}
   const wish=event.target.closest("[data-wishlist]");
   if(wish){const id=Number(wish.dataset.wishlist);savedHotels.has(id)?savedHotels.delete(id):savedHotels.add(id);localStorage.setItem("stacklyWishlist",JSON.stringify([...savedHotels]));renderHotels();toast(savedHotels.has(id)?"Added to your wishlist":"Removed from your wishlist");}
-  const coupon=event.target.closest("[data-coupon]");
-  if(coupon){const code=coupon.dataset.coupon;try{await navigator.clipboard.writeText(code);toast(`Coupon ${code} copied`);}catch{toast(`Your coupon code: ${code}`);}}
-  const book=event.target.closest("[data-book]");
-  if(book){const h=hotels.find(x=>x.id===Number(book.dataset.book));const nights=Number(prompt("How many nights would you like to stay?", "3"));if(Number.isInteger(nights)&&nights>0&&nights<366){const guests=Number($("#guests").value)||2;const total=h.price*nights;toast(`${nights} nights · ${guests} guests · Estimated total $${total.toLocaleString("en-US")}`);}else if(!Number.isNaN(nights))toast("Please enter a valid number of nights.");}
+
+/* COUPON CLICK - OPEN 404 PAGE */
+
+const coupon = event.target.closest("[data-coupon]");
+
+if (coupon) {
+    window.location.href = "404.html";
+}
+
+const book = event.target.closest("[data-book]");
+
+if (book) {
+    window.location.href = "404.html";
+}
+
   const dot=event.target.closest("[data-dot]");if(dot){testimonialIndex=Number(dot.dataset.dot);renderTestimonial();}
 });
 $("#priceFilter").addEventListener("change",renderHotels);
@@ -151,16 +167,22 @@ $("#searchForm").addEventListener("submit",e=>{
   $("#hotels").scrollIntoView({behavior:"smooth"});toast(`Your ${destination} search is ready — explore our sample stays.`);
 });
 
-$("#newsletterForm").addEventListener("submit",e=>{
-  e.preventDefault();const email=$("#newsletterEmail").value.trim();
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){toast("Please enter a valid email address.");return;}
-  const subscribers=JSON.parse(localStorage.getItem("stacklySubscribers")||"[]");
-  if(subscribers.includes(email)){toast("You're already on our list!");return;}
-  subscribers.push(email);localStorage.setItem("stacklySubscribers",JSON.stringify(subscribers));
-  $("#newsletterMessage").textContent="You're on the list. Look out for a little inspiration soon!";
-  $("#newsletterForm").reset();toast("Thanks for subscribing!");
-});
+$("#newsletterForm").addEventListener("submit", e => {
 
+    e.preventDefault();
+
+    const email = $("#newsletterEmail").value.trim();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        toast("Please enter a valid email address.");
+        return;
+    }
+
+    window.location.href = "404.html";
+
+});
 const menuToggle=$("#menuToggle"),navLinks=$("#navLinks");
 menuToggle.addEventListener("click",()=>{const open=navLinks.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(open));menuToggle.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';});
 document.querySelectorAll(".nav-link,.nav-cta").forEach(link=>link.addEventListener("click",()=>{navLinks.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.innerHTML='<i class="fa-solid fa-bars"></i>'; }));

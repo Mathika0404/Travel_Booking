@@ -166,3 +166,56 @@
         height: 45px;
     }
 }
+
+
+/* =====================================
+   DESKTOP SEARCH PANEL CENTER FIX
+===================================== */
+
+@media (min-width: 761px) {
+
+    .search-panel {
+        position: absolute !important;
+
+        left: 50% !important;
+        right: auto !important;
+
+        transform: translateX(-50%) !important;
+
+        width: min(1180px, calc(100% - 48px)) !important;
+        max-width: 1180px;
+
+        box-sizing: border-box;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        display: grid;
+        grid-template-columns:
+            1.45fr
+            1fr
+            1fr
+            1.15fr
+            auto;
+
+        align-items: center;
+    }
+
+    .search-field {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .search-field input,
+    .search-field select {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .search-submit {
+        white-space: nowrap;
+    }
+
+}
