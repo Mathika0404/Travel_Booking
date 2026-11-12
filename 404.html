@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b46">
+  <title>404 — Page Not Found | Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error-page{min-height:100vh;background:linear-gradient(135deg,#102b46 0%,#173c59 60%,#0b2136 100%);display:flex;align-items:center;justify-content:center;padding:30px;position:relative;overflow:hidden;color:#fff;text-align:center}
+    .error-page:before,.error-page:after{content:"";position:absolute;border:1px solid #ffffff15;border-radius:50%;width:520px;height:520px;animation:errorFloat 12s ease-in-out infinite alternate}
+    .error-page:before{top:-270px;right:-120px}.error-page:after{bottom:-340px;left:-130px;width:650px;height:650px;animation-delay:-4s}
+    @keyframes errorFloat{to{transform:translate3d(20px,25px,0) scale(1.08)}}
+    .error-content{position:relative;z-index:1;max-width:650px;animation:errorEnter .8s ease both}
+    @keyframes errorEnter{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+    .error-logo{width:190px;height:auto;margin:0 auto 38px;filter:brightness(0) invert(1)}
+    .error-code{font:clamp(100px,22vw,190px)/.85 "Playfair Display",Georgia,serif;color:#d9ad68;letter-spacing:-10px}
+    .error-content h1{font:clamp(30px,5vw,45px) "Playfair Display",Georgia,serif;letter-spacing:-1px;margin:24px 0 13px}
+    .error-content p{font-size:13px;line-height:1.9;color:#c4d0d8;max-width:440px;margin:0 auto}
+    .error-actions{display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin-top:32px}
+    .error-actions a{min-width:150px;justify-content:center}
+    .error-home{background:#d9ad68;color:#102b46}.error-back{border:1px solid #ffffff70;color:#fff}
+    @media(max-width:480px){.error-page{padding:20px}.error-logo{width:155px}.error-code{letter-spacing:-5px}.error-actions{width:100%}.error-actions a{flex:1}}
+  </style>
+</head>
+<body>
+  <main class="error-page">
+    <div class="error-content">
+      <img class="error-logo" src="assets/images/stackly-logo.svg" alt="Stackly logo">
+      <div class="error-code">404</div>
+      <h1>Oops! This page wandered off.</h1>
+      <p>The page you're looking for may have moved, or the link may be taking a little detour. Let's get you back on track.</p>
+      <div class="error-actions">
+        <a class="btn error-home" href="index.html"><i class="fa-solid fa-house"></i> Back to Home</a>
+        <a class="btn error-back" href="#" id="goBack"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.getElementById("goBack").addEventListener("click", function(event){
+      event.preventDefault();
+      if (history.length > 1) history.back();
+      else window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

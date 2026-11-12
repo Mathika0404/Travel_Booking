@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b46">
+  <meta name="description" content="Discover extraordinary stays and book your next escape with Stackly.">
+  <title>Stackly — Find Your Somewhere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-label="Loading website">
+    <div class="loader-mark"><i class="fa-solid fa-compass"></i></div>
+    <span class="loader-name">STACKLY</span>
+    <div class="loader-track"><span></span></div>
+    <small>Finding your somewhere...</small>
+  </div>
+
+  <div class="announcement">
+    <span><i class="fa-solid fa-sparkles"></i> Your next great escape starts here</span>
+    <span class="announcement-right">Need help? <a href="404.html">Talk to our travel team <i class="fa-solid fa-arrow-right"></i></a></span>
+  </div>
+
+  <header class="site-header" id="top">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/stackly_logo.webp" alt="Stackly logo"></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link active" href="404.html">Home</a>
+        <a class="nav-link" href="404.html">About</a>
+        <a class="nav-link" href="404.html">Services</a>
+        <a class="nav-link" href="404.html">Blog</a>
+        <a class="nav-link" href="404.html">Contact</a>
+        <a class="nav-cta" href="404.html">Login <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-shade"></div>
+      <div class="container hero-content">
+        <div class="hero-copy" data-aos="fade-up" data-aos-duration="1000">
+          <span class="eyebrow light"><span></span> THE WORLD IS YOURS TO DISCOVER</span>
+          <h1>Find your<br><em>somewhere.</em></h1>
+          <p>Thoughtful stays. Unforgettable places. A little more wonder in every journey.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="404.html">Explore destinations <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="play-link" href="404.html"><span><i class="fa-solid fa-play"></i></span> Discover our story</a>
+          </div>
+        </div>
+        <div class="hero-note" data-aos="fade-left" data-aos-delay="350"><span class="note-line"></span><span>Curated escapes<br><b>across the globe</b></span></div>
+        <div class="hero-bottom"><span><i class="fa-solid fa-location-dot"></i> Made for the curious</span><span>01 / 04</span></div>
+      </div>
+
+      <form class="search-panel container" id="searchForm" data-aos="fade-up" data-aos-delay="250">
+        <div class="search-field destination-field">
+          <label for="destinationInput"><i class="fa-solid fa-location-dot"></i> Destination</label>
+          <input id="destinationInput" type="text" placeholder="Where would you like to go?" list="destinationOptions" autocomplete="off">
+          <datalist id="destinationOptions">
+            <option value="Bali"><option value="Paris"><option value="Maldives"><option value="Kyoto"><option value="Swiss Alps"><option value="Santorini">
+          </datalist>
+        </div>
+        <div class="search-field">
+          <label for="checkIn"><i class="fa-regular fa-calendar"></i> Check in</label>
+          <input id="checkIn" type="date" required>
+        </div>
+        <div class="search-field">
+          <label for="checkOut"><i class="fa-regular fa-calendar-check"></i> Check out</label>
+          <input id="checkOut" type="date" required>
+        </div>
+        <div class="search-field guest-field">
+          <label for="guests"><i class="fa-regular fa-user"></i> Guests & rooms</label>
+          <select id="guests"><option value="2">2 guests · 1 room</option><option value="1">1 guest · 1 room</option><option value="3">3 guests · 1 room</option><option value="4">4 guests · 2 rooms</option><option value="5">5 guests · 2 rooms</option><option value="6">6 guests · 3 rooms</option></select>
+        </div>
+        <button class="search-submit" type="submit" aria-label="Search stays"><i class="fa-solid fa-magnifying-glass"></i><span>Search stays</span></button>
+      </form>
+    </section>
+
+    <section class="section destinations-section" id="destinations">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+          <div><span class="eyebrow">A WORLD OF POSSIBILITIES</span><h2>Places that stay<br><em>with you.</em></h2></div>
+          <p>From slow island mornings to vibrant city nights, find the place that feels like your kind of adventure.</p>
+        </div>
+        <div class="destination-grid" id="destinationGrid"></div>
+      </div>
+    </section>
+
+    <section class="section hotels-section" id="hotels">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+          <div><span class="eyebrow">STAYS WORTH THE JOURNEY</span><h2>Somewhere <em>special.</em></h2></div>
+          <p>Handpicked hideaways, design-led hotels and welcoming places with a story to tell.</p>
+        </div>
+        <div class="hotel-toolbar" data-aos="fade-up">
+          <div class="filter-group">
+            <label for="priceFilter">Price</label>
+            <select id="priceFilter"><option value="all">All prices</option><option value="150">Under $150</option><option value="250">Under $250</option><option value="400">Under $400</option></select>
+            <label for="ratingFilter">Rating</label>
+            <select id="ratingFilter"><option value="0">All ratings</option><option value="4.5">4.5+</option><option value="4.7">4.7+</option><option value="4.8">4.8+</option></select>
+          </div>
+          <div class="sort-group"><span id="resultCount">10 stays</span><label class="sr-only" for="sortHotels">Sort hotels</label><select id="sortHotels"><option value="recommended">Recommended</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="rating">Top rated</option></select></div>
+        </div>
+        <div class="hotel-grid" id="hotelGrid"></div>
+        <p class="empty-state" id="emptyHotels" hidden>No stays match those filters. Try widening your search.</p>
+      </div>
+    </section>
+
+    <section class="offer-section" id="offers">
+      <div class="container">
+        <div class="offer-intro" data-aos="fade-right"><span class="eyebrow light">A LITTLE SOMETHING EXTRA</span><h2>Good trips.<br><em>Better offers.</em></h2><p>Make your next getaway go a little further with limited-time treats.</p><a href="404.html" class="text-link light-link">Find your stay <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="offer-grid" id="offerGrid"></div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="container about-layout">
+        <div class="about-images" data-aos="fade-right">
+          <img class="about-main-img" src="images/offer1.webp" alt="Traveller overlooking a beautiful mountain landscape">
+          <img class="about-small-img" src="images/offer2.webp" alt="Colorful coastal village">
+          <div class="experience-stamp"><strong>10+</strong><span>years of<br>finding wonder</span></div>
+        </div>
+        <div class="about-copy" data-aos="fade-left">
+          <span class="eyebrow">A DIFFERENT WAY TO GET AWAY</span>
+          <h2>Travel should feel<br>like <em>you.</em></h2>
+          <p class="lead">We believe the best journeys aren't just about where you go. They're about how a place makes you feel.</p>
+          <p>Stackly brings together inspiring destinations and stays chosen for their character, comfort and sense of place. Less scrolling, more discovering — with a team that cares about the details.</p>
+          <div class="about-points"><div><i class="fa-solid fa-check"></i><span>Handpicked places, never ordinary</span></div><div><i class="fa-solid fa-check"></i><span>Helpful humans, every step of the way</span></div><div><i class="fa-solid fa-check"></i><span>Clear prices and thoughtful extras</span></div></div>
+          <a href="404.html" class="btn btn-dark">Get to know us <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="center-heading" data-aos="fade-up"><span class="eyebrow">THE STACKLY DIFFERENCE</span><h2>Little details. <em>Big memories.</em></h2><p>Everything you need for a smoother, more meaningful escape.</p></div>
+        <div class="services-grid">
+          <article class="service-card" data-aos="fade-up"><span class="service-icon"><i class="fa-solid fa-map-location-dot"></i></span><h3>Curated stays</h3><p>Places selected for their location, personality and the feeling they leave you with.</p><a href="404.html">Explore stays <i class="fa-solid fa-arrow-right"></i></a></article>
+          <article class="service-card" data-aos="fade-up" data-aos-delay="100"><span class="service-icon"><i class="fa-solid fa-headset"></i></span><h3>Here when you need us</h3><p>Real travel support to help with the details before, during and after your trip.</p><a href="404.html">Meet our team <i class="fa-solid fa-arrow-right"></i></a></article>
+          <article class="service-card" data-aos="fade-up" data-aos-delay="200"><span class="service-icon"><i class="fa-solid fa-shield-heart"></i></span><h3>Book with confidence</h3><p>Transparent information and simple booking details, so you can plan with peace of mind.</p><a href="404.html">See our offers <i class="fa-solid fa-arrow-right"></i></a></article>
+          <article class="service-card" data-aos="fade-up" data-aos-delay="300"><span class="service-icon"><i class="fa-solid fa-earth-americas"></i></span><h3>Local discoveries</h3><p>Find the neighbourhood gems, local flavours and experiences worth travelling for.</p><a href="404.html">Get inspired <i class="fa-solid fa-arrow-right"></i></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="container testimonial-layout">
+        <div class="testimonial-heading" data-aos="fade-right"><span class="eyebrow light">NOT JUST OUR WORD</span><h2>Stories from<br>the <em>road.</em></h2><p>A few kind words from people who found their somewhere with us.</p><div class="slider-controls"><button id="prevTestimonial" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button><button id="nextTestimonial" aria-label="Next testimonial"><i class="fa-solid fa-arrow-right"></i></button></div></div>
+        <div class="testimonial-content" data-aos="fade-left"><div class="quote-mark">“</div><div id="testimonialSlider" aria-live="polite"></div><div class="slider-dots" id="testimonialDots"></div></div>
+      </div>
+    </section>
+
+    <section class="section blog-section" id="blog">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up"><div><span class="eyebrow">NOTES FROM SOMEWHERE</span><h2>For the love<br>of <em>going.</em></h2></div><a href="404.html" class="text-link">More travel stories <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="blog-grid">
+          <article class="blog-card" data-aos="fade-up"><a href="404.html" class="blog-image"><img src="images/europe.webp" alt="White buildings overlooking a blue sea"><span>DESTINATION GUIDE</span></a><div class="blog-meta">5 MIN READ <i class="fa-solid fa-circle"></i> 12 JUN 2026</div><h3><a href="404.html">A slower kind of summer in the Greek islands</a></h3><p>Sun-washed afternoons, hidden coves and the joy of taking the scenic route.</p><a href="404.html" class="read-more">Read the story <i class="fa-solid fa-arrow-right"></i></a></article>
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="100"><a href="404.html" class="blog-image"><img src="images/kyoto.webp" alt="Traditional street in Kyoto, Japan"><span>TRAVEL NOTES</span></a><div class="blog-meta">4 MIN READ <i class="fa-solid fa-circle"></i> 04 JUN 2026</div><h3><a href="404.html">Kyoto beyond the postcard: where to wander</a></h3><p>Quiet lanes, tiny tea houses and a city that rewards a curious detour.</p><a href="404.html" class="read-more">Read the story <i class="fa-solid fa-arrow-right"></i></a></article>
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="200"><a href="404.html" class="blog-image"><img src="images/maldives.webp" alt="Tropical beach and turquoise ocean"><span>THE GOOD LIFE</span></a><div class="blog-meta">6 MIN READ <i class="fa-solid fa-circle"></i> 28 MAY 2026</div><h3><a href="404.html">The art of doing absolutely nothing in Bali</a></h3><p>Trade the itinerary for an open afternoon and let the island set the pace.</p><a href="404.html" class="read-more">Read the story <i class="fa-solid fa-arrow-right"></i></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter-section">
+      <div class="container newsletter-layout" data-aos="zoom-in">
+        <div><span class="eyebrow light">A GOOD THING IN YOUR INBOX</span><h2>A little wanderlust,<br><em>now and then.</em></h2><p>Fresh places, thoughtful travel tips and subscriber-only offers. No noise, just inspiration.</p></div>
+        <form id="newsletterForm" class="newsletter-form"><label for="newsletterEmail">Your email address</label><div class="newsletter-input"><input type="email" id="newsletterEmail" placeholder="you@example.com" required><button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button></div><small id="newsletterMessage">By subscribing, you agree to receive occasional travel notes from us.</small></form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand"><a class="brand brand-light" href="404.html"><img class="brand-logo" src="images/stackly_logo.webp" alt="Stackly logo"></a><p>For the places you'll remember<br>and the stories you'll bring home.</p><div class="social-links"><a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="404.html" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a><a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a></div></div>
+        <div class="footer-column"><h4>Explore</h4><a href="404.html">Home</a><a href="404.html">About us</a><a href="404.html">Our services</a><a href="404.html">Travel journal</a></div>
+        <div class="footer-column"><h4>Discover</h4><a href="404.html">Destinations</a><a href="404.html">Featured stays</a><a href="404.html">Special offers</a><a href="404.html">Travel inspiration</a></div>
+        <div class="footer-column contact-column"><h4>Say hello</h4><a href="404.html">hello@stackly.example</a><a href="404.html">+1 (800) 555-0148</a><p>Monday – Saturday<br>9:00 AM – 6:00 PM</p></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Stackly Travel. Demo website.</span><div><a href="404.html">Privacy</a><a href="404.html">Terms</a><a href="404.html">Back to top ↑</a></div></div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
